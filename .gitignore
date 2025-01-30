@@ -1,0 +1,4 @@
+# Helm chart packages and locks
+*.tgz
+**/Chart.lock
+**/charts/*.tgz
