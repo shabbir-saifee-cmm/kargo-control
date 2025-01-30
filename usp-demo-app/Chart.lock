@@ -1,0 +1,6 @@
+dependencies:
+- name: usp-demo-app
+  repository: oci://mck-cmm-oci-prod-virtual.jfrog.io/covermymeds/helm
+  version: 1.1.2
+digest: sha256:4654780fc6d45e178e9927af7f0e1b946d1aba97193bfd3e1fa53706eeaa3954
+generated: "2025-01-30T20:06:05.716832305Z"
