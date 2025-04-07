@@ -2,3 +2,7 @@ usp-demo-app:
   image:
     repository: mck-cmm-oci-prod-virtual.jfrog.io/covermymeds/image/myapp
     tag: 2.1.1
+lava-demo-app:
+  image:
+    repository: mck-cmm-oci-prod-virtual.jfrog.io/covermymeds/image/lava-demo-app
+    tag: 1.0.0
