@@ -1,7 +1,7 @@
 usp-demo-app:
   image:
     repository: mck-cmm-oci-prod-virtual.jfrog.io/covermymeds/image/myapp
-    tag: 2.1.1
+    tag: 2.1.2
   envs:
     - name: THREADS
       value: 1
