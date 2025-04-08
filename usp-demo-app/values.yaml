@@ -1,4 +1,5 @@
 usp-demo-app:
+  # image section from this file will be ignored
   image:
     repository: mck-cmm-oci-prod-virtual.jfrog.io/covermymeds/image/myapp
     tag: 2.1.2
