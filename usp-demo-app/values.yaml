@@ -1,3 +1,4 @@
+# this is the values for the umbrella chart in argo control
 usp-demo-app:
   # image section from this file will be ignored
   image:
