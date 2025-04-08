@@ -2,7 +2,9 @@ usp-demo-app:
   image:
     repository: mck-cmm-oci-prod-virtual.jfrog.io/covermymeds/image/myapp
     tag: 2.1.1
-lava-demo-admin:
-  image:
-    repository: mck-cmm-oci-prod-virtual.jfrog.io/covermymeds/image/lava-demo-admin
-    tag: 1.0.0
+  envs:
+    - name: THREADS
+      value: 1
+some-helper:
+  feature-flag:
+    enabled: true
