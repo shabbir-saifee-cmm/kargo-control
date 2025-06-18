@@ -93,9 +93,12 @@ spec:
     spec:
       imagePullSecrets:
         - name: regcred
+      env:
+        - name: ENV_SPECIFIC_VAR
+          value: production
       containers:
       - name: usp-demo-app
-        image: "kargoacr.azurecr.io/usp-demp-app:1.0.0"
+        image: "kargoacr.azurecr.io/usp-demp-app:2.0.0"
         imagePullPolicy: Always
   strategy:
     blueGreen:
