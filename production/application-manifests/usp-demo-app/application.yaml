@@ -45,7 +45,7 @@ metadata:
   name: usp-demo-app
 spec:
   rules:
-  - host: usp-demp-app.staging.cmmaz.cloud
+  - host: usp-demp-app.production.cmmaz.cloud
     http:
       paths:
       - path: /
@@ -63,7 +63,7 @@ metadata:
   name: usp-demo-app-preview
 spec:
   rules:
-  - host: usp-demp-app-preview.staging.cmmaz.cloud
+  - host: usp-demp-app-preview.production.cmmaz.cloud
     http:
       paths:
       - path: /
