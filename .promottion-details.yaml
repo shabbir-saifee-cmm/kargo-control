@@ -1,0 +1,4 @@
+last-promoted: "<date>"
+helm-chart-version: <semver>
+image-tag: <semver>
+no-op-change: true
