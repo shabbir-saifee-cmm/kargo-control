@@ -1,9 +1,0 @@
-apiVersion: v2
-name: usp-demo-app
-description: A helm chart
-type: application
-version: 1.0.0
-dependencies:
-  - name: usp-demo-app
-    repository: oci://mck-cmm-oci-prod-virtual.jfrog.io/covermymeds/helm
-    version: 1.1.2
