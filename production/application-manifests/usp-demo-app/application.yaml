@@ -95,7 +95,7 @@ spec:
         - name: regcred
       env:
         - name: ENV_SPECIFIC_VAR
-          value: production
+          value: production-new
       containers:
       - name: usp-demo-app
         image: "kargoacr.azurecr.io/usp-demp-app:2.0.0"
