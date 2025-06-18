@@ -1,0 +1,104 @@
+---
+# Source: usp-demo-app/charts/secrets-helper/templates/non-external-secrets.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-app-secrets
+  namespace: kargo-demo
+data:
+  foo: YmFy
+---
+# Source: usp-demo-app/templates/application.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: usp-demo-app
+  labels:
+    app: usp-demo-app
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    name: http
+  selector:
+    app: usp-demo-app
+---
+# Source: usp-demo-app/templates/application.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: usp-demo-app-preview
+  labels:
+    app: usp-demo-app
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      name: http
+  selector:
+    app: usp-demo-app
+---
+# Source: usp-demo-app/templates/application.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: usp-demo-app
+spec:
+  rules:
+  - host: usp-demp-app.staging.cmmaz.cloud
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: usp-demo-app
+            port:
+              number: 80
+---
+# Source: usp-demo-app/templates/application.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: usp-demo-app-preview
+spec:
+  rules:
+  - host: usp-demp-app-preview.staging.cmmaz.cloud
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: usp-demo-app-preview
+            port:
+              number: 80
+---
+# Source: usp-demo-app/templates/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: usp-demo-app
+  labels:
+    app: usp-demo-app
+spec:
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: usp-demo-app
+  template:
+    metadata:
+      labels:
+        app: usp-demo-app
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+      - name: usp-demo-app
+        image: "kargoacr.azurecr.io/usp-demp-app:2.1.3"
+        imagePullPolicy: Always
+  strategy:
+    blueGreen:
+      autoPromotionEnabled: false
+      activeService: usp-demo-app
+      previewService: usp-demo-app-preview
